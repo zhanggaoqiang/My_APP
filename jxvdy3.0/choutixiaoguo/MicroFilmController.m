@@ -6,7 +6,7 @@
 //  Copyright © 2016年 jinxiang. All rights reserved.
 //
 
-#import "LeftVC2.h"
+#import "MicroFilmController.h"
 #import "MJExtension.h"
 #import "AllKindsOfVideoModel.h"
 #import "VideoTableViewCell.h"
@@ -18,7 +18,7 @@
 #import "DetailVideoViewController.h"
 #import "ShareView.h"
 
-@interface LeftVC2 ()<UITableViewDataSource,UITableViewDelegate>
+@interface MicroFilmController ()<UITableViewDataSource,UITableViewDelegate>
 {
     //UITableView *_videoTableView;
     NSInteger movieIndex;
@@ -30,7 +30,7 @@
 
 @end
 
-@implementation LeftVC2
+@implementation MicroFilmController
 
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -55,12 +55,7 @@
                 if (tag==100) {
               [self  presentViewController:rightvc animated:YES completion:nil];
                 }
-        
-        
-        
-        
-        
-        
+          
     }  kind:^(NSString *str) {
        
         movieCount=5;
@@ -91,7 +86,6 @@
   [self creatRefreshView];
     
     str1=[NSString  stringWithFormat:@"http://api2.jxvdy.com/search_list?model=video&order=%@&count=%ld&offset=0&type=0", countStr, movieCount];
-
     
     [self loadDataPage];
      
@@ -125,8 +119,7 @@
           [weakSelf loadDataPage];
         
          [weakSelf.videoTableView headerEndRefreshingWithResult:JHRefreshResultSuccess];
-        
-      
+       
     }];
     
     [_videoTableView addRefreshFooterViewWithAniViewClass:[JHRefreshCommonAniView class] beginRefresh:^{
@@ -239,7 +232,7 @@
 
 
 -(void)creatShareView {
-    __weak  LeftVC2 *weakSelf=self;
+    __weak  MicroFilmController *weakSelf=self;
     
    __block  ShareView *sharview= [[ShareView alloc] initWithFrame:CGRectMake(0, kScreenSize.height-250, kScreenSize.width, 250) shareItem:^(int  index) {
            

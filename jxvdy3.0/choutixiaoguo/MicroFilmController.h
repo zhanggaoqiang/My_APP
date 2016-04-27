@@ -10,7 +10,7 @@
 
 #import "AFNetworking.h"
 
-@interface LeftVC2 : LeftBaseViewController
+@interface MicroFilmController : LeftBaseViewController
 
 
 {

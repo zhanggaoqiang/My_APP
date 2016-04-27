@@ -8,7 +8,7 @@
 
 #import "CenterViewController.h"
 
-#import "LeftVC2.h"
+#import "MicroFilmController.h"
 
 #import "ScriptViewController.h"
 #import "SerialsViewController.h"
@@ -16,7 +16,9 @@
 
 @interface CenterViewController()
 {
-    LeftVC2 *vc1;
+    
+    MicroFilmController *vc1;
+    
     SerialsViewController *vc2;
     ScriptViewController *vc3;
 }
@@ -59,7 +61,7 @@
     _index=index;
     if (index==0) {
         if (vc1==nil) {
-            vc1=[[LeftVC2 alloc] init];
+            vc1=[[MicroFilmController alloc] init];
             [self  addChildViewController:vc1];
         }
         _targetVC=vc1;

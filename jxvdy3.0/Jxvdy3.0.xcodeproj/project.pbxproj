@@ -306,7 +306,7 @@
 		DDE514CF1C46409D005F8655 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE514CE1C46409D005F8655 /* RightViewController.m */; };
 		DDE514D21C464128005F8655 /* LeftBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE514D11C464128005F8655 /* LeftBaseViewController.m */; };
 		DDE514DB1C4642A6005F8655 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE514DA1C4642A6005F8655 /* RootViewController.m */; };
-		DDE514EE1C4649CF005F8655 /* LeftVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE514ED1C4649CF005F8655 /* LeftVC2.m */; };
+		DDE514EE1C4649CF005F8655 /* MicroFilmController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE514ED1C4649CF005F8655 /* MicroFilmController.m */; };
 		DDE514F41C464D9E005F8655 /* CustomNavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE514F31C464D9E005F8655 /* CustomNavigationItem.m */; };
 /* End PBXBuildFile section */
 
@@ -777,8 +777,8 @@
 		DDE514D11C464128005F8655 /* LeftBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftBaseViewController.m; sourceTree = "<group>"; };
 		DDE514D91C4642A5005F8655 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		DDE514DA1C4642A6005F8655 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		DDE514EC1C4649CF005F8655 /* LeftVC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftVC2.h; path = choutixiaoguo/LeftVC2.h; sourceTree = "<group>"; };
-		DDE514ED1C4649CF005F8655 /* LeftVC2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftVC2.m; path = choutixiaoguo/LeftVC2.m; sourceTree = "<group>"; };
+		DDE514EC1C4649CF005F8655 /* MicroFilmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MicroFilmController.h; path = choutixiaoguo/MicroFilmController.h; sourceTree = "<group>"; };
+		DDE514ED1C4649CF005F8655 /* MicroFilmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MicroFilmController.m; path = choutixiaoguo/MicroFilmController.m; sourceTree = "<group>"; };
 		DDE514F21C464D9E005F8655 /* CustomNavigationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomNavigationItem.h; path = choutixiaoguo/CustomNavigationItem.h; sourceTree = "<group>"; };
 		DDE514F31C464D9E005F8655 /* CustomNavigationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomNavigationItem.m; path = choutixiaoguo/CustomNavigationItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1331,8 +1331,8 @@
 		DD9C8D501CA23A1C004A3D01 /* MicroVideo */ = {
 			isa = PBXGroup;
 			children = (
-				DDE514EC1C4649CF005F8655 /* LeftVC2.h */,
-				DDE514ED1C4649CF005F8655 /* LeftVC2.m */,
+				DDE514EC1C4649CF005F8655 /* MicroFilmController.h */,
+				DDE514ED1C4649CF005F8655 /* MicroFilmController.m */,
 			);
 			name = MicroVideo;
 			sourceTree = "<group>";
@@ -1908,7 +1908,7 @@
 				DD86BE231C7D405100500FBE /* FirstPageView.m in Sources */,
 				DD8E30E11C7FF375003BE224 /* UIAlertView+AFNetworking.m in Sources */,
 				DD018AD01C910F180094606C /* FMDatabase.m in Sources */,
-				DDE514EE1C4649CF005F8655 /* LeftVC2.m in Sources */,
+				DDE514EE1C4649CF005F8655 /* MicroFilmController.m in Sources */,
 				DDA43E331C88163E001A883F /* UIScrollView+MJRefresh.m in Sources */,
 				DD018AD31C910F180094606C /* FMDatabaseQueue.m in Sources */,
 				DD018AD21C910F180094606C /* FMDatabasePool.m in Sources */,
