@@ -11,7 +11,7 @@
 #import "AllKindsOfVideoModel.h"
 #import "VideoTableViewCell.h"
 #import "SVProgressHUD.h"
-#import "MJRefresh.h"
+
 #import "RightViewController.h"
 @interface SerialsViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -75,13 +75,6 @@
 }
 
 
--(void)endRefresh {
-    
-    [_videoTableView.mj_header  endRefreshing];
-    [_videoTableView.mj_footer endRefreshing];
-    
-}
-
 
 
 
@@ -123,7 +116,7 @@
     NSString *str=[str1  stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet   URLQueryAllowedCharacterSet]];
     [_manager  GET:str parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        [self endRefresh];
+      
         NSArray *jsonString=[NSJSONSerialization  JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         
         
@@ -144,21 +137,23 @@
     _videoTableView.dataSource=self;
     
     
-    _videoTableView.mj_header=[MJRefreshNormalHeader   headerWithRefreshingBlock:^{
-        
-        offset=(offset+1)*10;
-        
-        [self   loadDataPage];
-        
-    }];
+//    _videoTableView.mj_header=[MJRefreshNormalHeader   headerWithRefreshingBlock:^{
+//        
+//        offset=(offset+1)*10;
+//        
+//        [self   loadDataPage];
+//        
+//    }];
+//    
+//    
+//    
+//    _videoTableView.mj_footer=[MJRefreshAutoFooter  footerWithRefreshingBlock:^{
+//        [self loadDataPage];
     
     
     
-    _videoTableView.mj_footer=[MJRefreshAutoFooter  footerWithRefreshingBlock:^{
-        [self loadDataPage];
-        
-        
-    }];
+    
+  //  }//];
     //    MJRefreshAutoGifFooter *footer = [MJRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadDataPage)];
     //
     //    // 设置刷新图片

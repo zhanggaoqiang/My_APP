@@ -1,0 +1,5 @@
+platform:ios,'8.0'
+target 'Jxvdy3.0' do
+pod 'MJRefresh'
+
+end

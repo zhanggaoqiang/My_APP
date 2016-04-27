@@ -11,12 +11,12 @@
 #import "AllKindsOfVideoModel.h"
 #import "VideoTableViewCell.h"
 #import "SVProgressHUD.h"
-#import "MJRefresh.h"
 #import "JHRefresh.h"
 #import "MMProgressHUD.h"
 #import "RightViewController.h"
 #import "DetailVideoViewController.h"
 #import "ShareView.h"
+
 
 @interface MicroFilmController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -55,7 +55,7 @@
                 if (tag==100) {
               [self  presentViewController:rightvc animated:YES completion:nil];
                 }
-          
+        
     }  kind:^(NSString *str) {
        
         movieCount=5;

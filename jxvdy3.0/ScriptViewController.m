@@ -10,7 +10,6 @@
 #import "FindScriptCell.h"
 #import "FindScriptModel.h"
 #import "SVProgressHUD.h"
-#import "MJRefresh.h"
 #import "MJExtension.h"
 #import "CustomNavigationItem.h"
 #import "RightViewController.h"
@@ -85,14 +84,6 @@
     [_videoTableView reloadData];
 }
 
--(void)endRefresh {
-    
-    [_videoTableView.mj_header  endRefreshing];
-    [_videoTableView.mj_footer endRefreshing];
-    
-}
-
-
 
 
 -(void)change:(NSNotification *)nf {
@@ -104,7 +95,7 @@
  
     }
     else {
-    str1=[NSString  stringWithFormat:@"http://api2.jxvdy.com/search_list?model=screenplay&order=time&count=15&type=%ld&sale=0&offset=0",movieIndex];
+    str1=[NSString  stringWithFormat:@"http://api2.jxvdy.com/search_list?model=screenplay&order=time&count=15&type=%ld&sale=0&offset=0",(long)movieIndex];
     }
     
     [self creatHttpRequest];
@@ -128,7 +119,7 @@
     NSString *str=[str1  stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet   URLQueryAllowedCharacterSet]];
     [_manager  GET:str parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        [self endRefresh];
+      
         NSArray *arr=[NSJSONSerialization  JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         
         NSLog(@"dict是:%@",arr);
@@ -144,7 +135,8 @@
             model.time=dict[@"time"];
             model.title=dict[@"title"];
     [self.dataArr  addObject:model];
-        }//        self.dataArr=[FindScriptModel mj_objectArrayWithKeyValuesArray:jsonString];
+        }//
+        //self.dataArr=[FindScriptModel mj_objectArrayWithKeyValuesArray:jsonString];
         
         
         
@@ -167,21 +159,10 @@
     _videoTableView.dataSource=self;
     
     
-    _videoTableView.header=[MJRefreshNormalHeader   headerWithRefreshingBlock:^{
-        
-        offset=(offset+1)*10;
-        
-        [self   loadDataPage];
-        
-    }];
     
     
     
-    _videoTableView.mj_footer=[MJRefreshAutoFooter  footerWithRefreshingBlock:^{
-        [self loadDataPage];
-        
-        
-    }];
+ 
     //    MJRefreshAutoGifFooter *footer = [MJRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadDataPage)];
     //
     //    // 设置刷新图片
@@ -189,10 +170,7 @@
     //
     //    // 设置尾部
     //    self.tableView.mj_footer = footer;
-    
-    _videoTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
-    [self.view addSubview:_videoTableView];
-}
+  }
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
