@@ -37,7 +37,8 @@ UIActivityIndicatorView *activityIndicatorView;
         NSURLRequest* request = [NSURLRequest requestWithURL:url];//创建NSURLRequest
         [webView loadRequest:request];//加载
         
-        
+        [(UIScrollView *)[[webView subviews] objectAtIndex:0] setBounces:NO];
+
         
         activityIndicatorView = [[UIActivityIndicatorView alloc]
                                  initWithFrame : CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)] ;
@@ -48,6 +49,7 @@ UIActivityIndicatorView *activityIndicatorView;
     }
     else
     {
+        
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:@"完不成作业要做俯卧撑" preferredStyle:UIAlertControllerStyleAlert];
       
         [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
