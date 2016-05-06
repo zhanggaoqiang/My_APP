@@ -99,7 +99,7 @@
 		99DF082E1CD83B21006331D0 = {
 			isa = PBXGroup;
 			children = (
-				99DF08391CD83B21006331D0 /* WebView */,
+				99DF08391CD83B21006331D0 /* 51besttea */,
 				99DF08381CD83B21006331D0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,7 +112,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		99DF08391CD83B21006331D0 /* WebView */ = {
+		99DF08391CD83B21006331D0 /* 51besttea */ = {
 			isa = PBXGroup;
 			children = (
 				99DF08511CD8532A006331D0 /* AFNetworking */,
@@ -126,6 +126,7 @@
 				99DF084B1CD83B21006331D0 /* Info.plist */,
 				99DF083A1CD83B21006331D0 /* Supporting Files */,
 			);
+			name = 51besttea;
 			path = WebView;
 			sourceTree = "<group>";
 		};
@@ -447,6 +448,7 @@
 				99DF08501CD83B21006331D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
