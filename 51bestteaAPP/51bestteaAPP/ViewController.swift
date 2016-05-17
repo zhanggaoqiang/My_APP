@@ -14,6 +14,9 @@ class ViewController: UIViewController,WKNavigationDelegate,WKUIDelegate {
     var wk:WKWebView!
      override func viewDidLoad() {
         super.viewDidLoad()
+          let statuesBarView = UIView(frame:CGRectMake(0,0,self.view.frame.size.width,20));
+    
+        
         let statusHeight = UIApplication.sharedApplication().statusBarFrame.height
         
         self.wk = WKWebView(frame: CGRectMake(0, statusHeight, self.view.frame.size.width, self.view.frame.size.height-statusHeight))
