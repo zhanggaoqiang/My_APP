@@ -136,23 +136,7 @@
 - (void)goback {
     if ([self.webview canGoBack]) {
         _flag = YES;
-        
-        
-        
-//        
-//        CATransition *transition = [CATransition animation];
-//        
-//        transition.duration = 0.3f;
-//        
-//        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-//        transition.type = kCATransitionPush;
-//        
-//        transition.subtype = kCATransitionFromLeft;
-//        
-//        transition.delegate = self;
-//        
-//        [self.webview.layer addAnimation:transition forKey:nil];
-       [self.webview goBack];
+        [self.webview goBack];
        
     }
 }
@@ -177,8 +161,7 @@
     }
 }
 #pragma mark - 代理方法
-- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation { // 类似UIWebView的 -    
-    //self.webview.hidden=YES;
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation { // 类似UIWebView的 -
 
 }
 
@@ -189,6 +172,24 @@
 
 
 -(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    [self popAndPush];
+  
+}
+
+
+
+
+
+-(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+   
+    decisionHandler(WKNavigationActionPolicyAllow);
+    
+}
+
+
+
+#pragma mark  - 自定义pop和push效果
+-(void)popAndPush {
     
     CATransition *transition = [CATransition animation];
     
@@ -196,17 +197,14 @@
     
     transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     
-    transition.type = kCATransitionPush;
+    transition.type = kCATransitionPush;//type设置主要的页面切换显示方式
     if (_flag==YES) {
-        transition.subtype = kCATransitionFromLeft;
+        transition.subtype = kCATransitionFromLeft;//subtype设置了页面的旋转 -左右上下
         
     }else {
         transition.subtype=kCATransitionFromRight;
         
     }
-
-    
-   
     
     transition.delegate = self;
     
@@ -214,51 +212,14 @@
     
     [self.view addSubview:self.webview];
     _flag=NO;
-
+ 
+    
+    
+    
 }
 
 
--(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
-    
 
-    
-    NSString *url = [navigationAction.request.URL.absoluteString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-   
-    decisionHandler(WKNavigationActionPolicyAllow);
-    if ([url  isEqualToString:@"http://m.51besttea.com/"]) {
-       
-        
-    }else {
-        
-        
-//        
-//        CATransition *transition = [CATransition animation];
-//        
-//        transition.duration = 0.3f;
-//        
-//        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-//        
-//        transition.type = kCATransitionPush;
-//        
-//        transition.subtype = kCATransitionFromRight;
-//        
-//        transition.delegate = self;
-//        
-//        [self.webview.layer addAnimation:transition forKey:nil];
-//        
-//        [self.view addSubview:self.webview];
-       
-    
-    }
-    
-    
-    
-    
-    
-
-    
-}
 
 
 
