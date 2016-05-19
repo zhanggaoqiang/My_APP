@@ -7,7 +7,6 @@
 
 #import "WKWebViewController.h"
 #import <WebKit/WebKit.h>
-#import "SecondViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface WKWebViewController ()<WKNavigationDelegate,WKUIDelegate>

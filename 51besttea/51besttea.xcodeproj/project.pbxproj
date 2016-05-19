@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		990E13741CEC647B00E7680A /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990E13731CEC647B00E7680A /* SecondViewController.m */; };
 		9968B5D81CEC15270050CCB3 /* 返回High.png in Resources */ = {isa = PBXBuildFile; fileRef = 9968B5D71CEC15270050CCB3 /* 返回High.png */; };
 		9968B5DA1CEC152C0050CCB3 /* 返回.png in Resources */ = {isa = PBXBuildFile; fileRef = 9968B5D91CEC152C0050CCB3 /* 返回.png */; };
 		99DAA9351CED4C0A00BA641F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DAA9341CED4C0A00BA641F /* QuartzCore.framework */; };
@@ -20,8 +19,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		990E13721CEC647B00E7680A /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		990E13731CEC647B00E7680A /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		9968B5D71CEC15270050CCB3 /* 返回High.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回High.png"; sourceTree = "<group>"; };
 		9968B5D91CEC152C0050CCB3 /* 返回.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回.png"; sourceTree = "<group>"; };
 		99DAA9341CED4C0A00BA641F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -53,8 +50,6 @@
 			isa = PBXGroup;
 			children = (
 				99DAA9341CED4C0A00BA641F /* QuartzCore.framework */,
-				990E13721CEC647B00E7680A /* SecondViewController.h */,
-				990E13731CEC647B00E7680A /* SecondViewController.m */,
 				99DF08391CD83B21006331D0 /* 51besttea */,
 				99DF08381CD83B21006331D0 /* Products */,
 			);
@@ -168,7 +163,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				990E13741CEC647B00E7680A /* SecondViewController.m in Sources */,
 				99DF08421CD83B21006331D0 /* WKWebViewController.m in Sources */,
 				99DF083F1CD83B21006331D0 /* AppDelegate.m in Sources */,
 				99DF083C1CD83B21006331D0 /* main.m in Sources */,
