@@ -7,17 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		990E13741CEC647B00E7680A /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990E13731CEC647B00E7680A /* SecondViewController.m */; };
+		9968B5D81CEC15270050CCB3 /* 返回High.png in Resources */ = {isa = PBXBuildFile; fileRef = 9968B5D71CEC15270050CCB3 /* 返回High.png */; };
+		9968B5DA1CEC152C0050CCB3 /* 返回.png in Resources */ = {isa = PBXBuildFile; fileRef = 9968B5D91CEC152C0050CCB3 /* 返回.png */; };
+		99DAA9351CED4C0A00BA641F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DAA9341CED4C0A00BA641F /* QuartzCore.framework */; };
 		99DF083C1CD83B21006331D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DF083B1CD83B21006331D0 /* main.m */; };
 		99DF083F1CD83B21006331D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DF083E1CD83B21006331D0 /* AppDelegate.m */; };
 		99DF08421CD83B21006331D0 /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DF08411CD83B21006331D0 /* WKWebViewController.m */; };
 		99DF08451CD83B21006331D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99DF08431CD83B21006331D0 /* Main.storyboard */; };
 		99DF08471CD83B21006331D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99DF08461CD83B21006331D0 /* Assets.xcassets */; };
 		99DF084A1CD83B21006331D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99DF08481CD83B21006331D0 /* LaunchScreen.storyboard */; };
-		99F336FD1CEABF4800461160 /* 返回.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F336FB1CEABF4800461160 /* 返回.png */; };
-		99F336FE1CEABF4800461160 /* 返回High.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F336FC1CEABF4800461160 /* 返回High.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		990E13721CEC647B00E7680A /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		990E13731CEC647B00E7680A /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		9968B5D71CEC15270050CCB3 /* 返回High.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回High.png"; sourceTree = "<group>"; };
+		9968B5D91CEC152C0050CCB3 /* 返回.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回.png"; sourceTree = "<group>"; };
+		99DAA9341CED4C0A00BA641F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		99DF08371CD83B21006331D0 /* 51besttea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 51besttea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99DF083B1CD83B21006331D0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		99DF083D1CD83B21006331D0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -28,8 +35,6 @@
 		99DF08461CD83B21006331D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99DF08491CD83B21006331D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99DF084B1CD83B21006331D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		99F336FB1CEABF4800461160 /* 返回.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回.png"; sourceTree = "<group>"; };
-		99F336FC1CEABF4800461160 /* 返回High.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回High.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99DAA9351CED4C0A00BA641F /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +52,9 @@
 		99DF082E1CD83B21006331D0 = {
 			isa = PBXGroup;
 			children = (
+				99DAA9341CED4C0A00BA641F /* QuartzCore.framework */,
+				990E13721CEC647B00E7680A /* SecondViewController.h */,
+				990E13731CEC647B00E7680A /* SecondViewController.m */,
 				99DF08391CD83B21006331D0 /* 51besttea */,
 				99DF08381CD83B21006331D0 /* Products */,
 			);
@@ -62,8 +71,8 @@
 		99DF08391CD83B21006331D0 /* 51besttea */ = {
 			isa = PBXGroup;
 			children = (
-				99F336FB1CEABF4800461160 /* 返回.png */,
-				99F336FC1CEABF4800461160 /* 返回High.png */,
+				9968B5D91CEC152C0050CCB3 /* 返回.png */,
+				9968B5D71CEC15270050CCB3 /* 返回High.png */,
 				99DF083D1CD83B21006331D0 /* AppDelegate.h */,
 				99DF083E1CD83B21006331D0 /* AppDelegate.m */,
 				99DF08401CD83B21006331D0 /* WKWebViewController.h */,
@@ -144,11 +153,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9968B5DA1CEC152C0050CCB3 /* 返回.png in Resources */,
 				99DF084A1CD83B21006331D0 /* LaunchScreen.storyboard in Resources */,
 				99DF08471CD83B21006331D0 /* Assets.xcassets in Resources */,
 				99DF08451CD83B21006331D0 /* Main.storyboard in Resources */,
-				99F336FD1CEABF4800461160 /* 返回.png in Resources */,
-				99F336FE1CEABF4800461160 /* 返回High.png in Resources */,
+				9968B5D81CEC15270050CCB3 /* 返回High.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				990E13741CEC647B00E7680A /* SecondViewController.m in Sources */,
 				99DF08421CD83B21006331D0 /* WKWebViewController.m in Sources */,
 				99DF083F1CD83B21006331D0 /* AppDelegate.m in Sources */,
 				99DF083C1CD83B21006331D0 /* main.m in Sources */,
@@ -275,13 +285,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: gaoqiang zhang (4332C8S26Y)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: gaoqiang zhang (4NTCSB57KR)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				INFOPLIST_FILE = WebView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.51besttea.ds;
 				PRODUCT_NAME = 51besttea;
-				PROVISIONING_PROFILE = "f4cbf9c8-1601-4569-b938-8e0170b82e02";
+				PROVISIONING_PROFILE = "0f5ecd11-c8bd-4e84-a290-aa673fa0572e";
 			};
 			name = Debug;
 		};
@@ -295,7 +305,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.51besttea.ds;
 				PRODUCT_NAME = 51besttea;
-				PROVISIONING_PROFILE = "f4cbf9c8-1601-4569-b938-8e0170b82e02";
+				PROVISIONING_PROFILE = "0f5ecd11-c8bd-4e84-a290-aa673fa0572e";
 			};
 			name = Release;
 		};
@@ -348,7 +358,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.51besttea.ds;
 				PRODUCT_NAME = 51besttea;
-				PROVISIONING_PROFILE = "f4cbf9c8-1601-4569-b938-8e0170b82e02";
+				PROVISIONING_PROFILE = "0f5ecd11-c8bd-4e84-a290-aa673fa0572e";
 			};
 			name = "ad hoc distribution";
 		};

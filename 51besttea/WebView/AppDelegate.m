@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "WKWebViewController.h"
 
 @interface AppDelegate ()
 
@@ -15,8 +16,18 @@
 @implementation AppDelegate
 
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    WKWebViewController *wkwebview=[[WKWebViewController alloc] init];
+    UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:wkwebview];
+    
+    
+  
+    self.window.rootViewController=nav;
+    
+    [self.window  makeKeyAndVisible];
+       
     return YES;
 }
 
