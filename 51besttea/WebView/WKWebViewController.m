@@ -17,7 +17,8 @@
 @property(nonatomic,strong)UIButton *leftButton;//返回按钮
 @property(nonatomic,strong)UIView *lineView;//分割线
 @property(nonatomic,strong)WKWebViewController *svc;
-@property(nonatomic,strong)NSString *title;
+@property(nonatomic)BOOL flag;
+
 
 @end
 
@@ -28,6 +29,7 @@
 #pragma mark  - 生命周期函数
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     [self  setUserAgent];
  
     self.navigationController.navigationBar.hidden=YES;
@@ -40,8 +42,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor=[UIColor whiteColor];
+   
     
-     self.webview.navigationDelegate=self;
+  
    
     
  }
@@ -57,6 +61,7 @@
     //regist the new agent
     NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:newAgent, @"UserAgent",nil];
     [[NSUserDefaults standardUserDefaults] registerDefaults:dictionnary];
+    NSLog(@"userAgent是:%@",dictionnary);
     
 }
 
@@ -64,10 +69,10 @@
 -(WKWebView *)webview
 {
     if (!_webview) {
-         _webview= [[WKWebView alloc] initWithFrame:CGRectMake(0, 65, self.view.frame.size.width, self.view.frame.size.height-64)];
+         _webview= [[WKWebView alloc] initWithFrame:CGRectMake(0,65, self.view.frame.size.width, self.view.frame.size.height-64)];
          _webview.allowsBackForwardNavigationGestures =YES;
         [_webview loadRequest:[NSURLRequest requestWithURL:[NSURL  URLWithString:@"http://m.51besttea.com"]]];
-
+        _webview.navigationDelegate=self;
         
         [_webview addObserver:self  forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
 
@@ -128,33 +133,37 @@
     return _lineView;
  }
 
-
-
 #pragma mark - 返回方法
 - (void)goback {
     if ([self.webview canGoBack]) {
+        _flag = YES;
         
-        CATransition *transition = [CATransition animation];
         
-        transition.duration = 0.3f;
         
-        //transition.timingFunction = [CAMediaTimingFunctionfunctionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-        
-        transition.type = kCATransitionPush;
-        
-        transition.subtype = kCATransitionFromLeft;
-        
-        transition.delegate = self;
-        
-        [self.webview.superview.layer addAnimation:transition forKey:nil];
-  
-        [self.webview goBack];
+//        
+//        CATransition *transition = [CATransition animation];
+//        
+//        transition.duration = 0.3f;
+//        
+//        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+//        transition.type = kCATransitionPush;
+//        
+//        transition.subtype = kCATransitionFromLeft;
+//        
+//        transition.delegate = self;
+//        
+//        [self.webview.layer addAnimation:transition forKey:nil];
+       [self.webview goBack];
+       
     }
 }
 
 #pragma mark - 观察者方法
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     if ([keyPath  isEqualToString:@"title"]) {
+ 
+      
+
         if ([self.webview.title  isEqualToString:@"51好茶网-一杯干净的好茶"]) {
             self.leftButton.hidden=YES;
             self.titleLabel.text=self.webview.title;
@@ -164,15 +173,49 @@
             self.leftButton.hidden=NO;
             self.titleLabel.text =self.webview.title;
        }
+        
+
     }
 }
 #pragma mark - 代理方法
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation { // 类似UIWebView的 -    
-    
+    //self.webview.hidden=YES;
+
 }
 
 - (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
+    
   
+}
+
+
+-(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    
+    CATransition *transition = [CATransition animation];
+    
+    transition.duration = 0.3f;
+    
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    transition.type = kCATransitionPush;
+    if (_flag==YES) {
+        transition.subtype = kCATransitionFromLeft;
+        
+    }else {
+        transition.subtype=kCATransitionFromRight;
+        
+    }
+
+    
+   
+    
+    transition.delegate = self;
+    
+    [self.webview.layer addAnimation:transition forKey:nil];
+    
+    [self.view addSubview:self.webview];
+    _flag=NO;
+
 }
 
 
@@ -181,32 +224,32 @@
 
     
     NSString *url = [navigationAction.request.URL.absoluteString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-      self.svc=[[WKWebViewController alloc] init];
+    
    
     decisionHandler(WKNavigationActionPolicyAllow);
     if ([url  isEqualToString:@"http://m.51besttea.com/"]) {
-         _svc.title =url;
+       
         
     }else {
         
         
-        CATransition *transition = [CATransition animation];
-        
-        transition.duration = 0.3f;
-        
-        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-        
-        transition.type = kCATransitionPush;
-        
-        transition.subtype = kCATransitionFromRight;
-        
-        transition.delegate = self;
-        
-        [self.webview.layer addAnimation:transition forKey:nil];
-        
-       // WKWebView  *webview1= [[WKWebView alloc] initWithFrame:CGRectMake(0, 65, self.view.frame.size.width, self.view.frame.size.height-64)];
-        
-        [self.view addSubview:self.webview];
+//        
+//        CATransition *transition = [CATransition animation];
+//        
+//        transition.duration = 0.3f;
+//        
+//        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//        
+//        transition.type = kCATransitionPush;
+//        
+//        transition.subtype = kCATransitionFromRight;
+//        
+//        transition.delegate = self;
+//        
+//        [self.webview.layer addAnimation:transition forKey:nil];
+//        
+//        [self.view addSubview:self.webview];
+       
     
     }
     
