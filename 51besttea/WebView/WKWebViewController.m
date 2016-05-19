@@ -199,7 +199,7 @@
     
     transition.type = kCATransitionPush;//type设置主要的页面切换显示方式
     if (_flag==YES) {
-        transition.subtype = kCATransitionFromLeft;//subtype设置了页面的旋转 -左右上下
+        transition.subtype = kCATransitionFromLeft;//subtype设置了页面的旋转-左右上下
         
     }else {
         transition.subtype=kCATransitionFromRight;
