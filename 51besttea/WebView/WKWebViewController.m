@@ -17,13 +17,11 @@
 @property(nonatomic,strong)UIView *lineView;//分割线
 @property(nonatomic,strong)WKWebViewController *svc;
 @property(nonatomic)BOOL flag;
-
-
+@property(nonatomic,strong)UIActivityIndicatorView *activityView;
+@property(nonatomic,strong)CATransition *transition;
+@property(nonatomic,strong)NSString *hostname;
 @end
-
-
 @implementation WKWebViewController
-
 
 #pragma mark  - 生命周期函数
 -(void)viewWillAppear:(BOOL)animated {
@@ -42,10 +40,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor whiteColor];
-   
-    
-  
-   
     
  }
 
@@ -69,8 +63,9 @@
 {
     if (!_webview) {
          _webview= [[WKWebView alloc] initWithFrame:CGRectMake(0,65, self.view.frame.size.width, self.view.frame.size.height-64)];
-         _webview.allowsBackForwardNavigationGestures =YES;
         [_webview loadRequest:[NSURLRequest requestWithURL:[NSURL  URLWithString:@"http://m.51besttea.com"]]];
+        _webview.backgroundColor=[UIColor whiteColor];
+        _webview.allowsBackForwardNavigationGestures =YES;
         _webview.navigationDelegate=self;
         
         [_webview addObserver:self  forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
@@ -135,7 +130,7 @@
 #pragma mark - 返回方法
 - (void)goback {
     if ([self.webview canGoBack]) {
-        _flag = YES;
+        [self pop];
         [self.webview goBack];
        
     }
@@ -145,8 +140,6 @@
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     if ([keyPath  isEqualToString:@"title"]) {
  
-      
-
         if ([self.webview.title  isEqualToString:@"51好茶网-一杯干净的好茶"]) {
             self.leftButton.hidden=YES;
             self.titleLabel.text=self.webview.title;
@@ -161,63 +154,160 @@
     }
 }
 #pragma mark - 代理方法
-- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation { // 类似UIWebView的 -
 
+-(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+  
+    
+   _hostname = navigationAction.request.URL.host.lowercaseString;
+   
+    
+ 
+    if (navigationAction.navigationType == WKNavigationTypeLinkActivated
+        && ![_hostname containsString:@".51besttea.com"]) {
+        // 对于跨域，需要手动跳转
+        [[UIApplication sharedApplication] openURL:navigationAction.request.URL];
+        
+        // 不允许web内跳转
+        decisionHandler(WKNavigationActionPolicyCancel);
+    } else {
+    
+        decisionHandler(WKNavigationActionPolicyAllow);
+    }
+    
+  
+}
+
+
+-(void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
+    
+    
+    self.webview.hidden=YES;
+    [_activityView startAnimating];
+    
+    if(_flag ==NO)
+    {
+        _flag=YES;
+    }else {
+       [self  push];
+    }
+  
+  
+
+    decisionHandler(WKNavigationActionPolicyAllow);
+}
+
+
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
+    
+   
+    
+    
+    
+    
 }
 
 - (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
+  
+   
+    
     
   
 }
 
 
 -(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-    [self popAndPush];
   
-}
-
-
-
-
-
--(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
-   
-    decisionHandler(WKNavigationActionPolicyAllow);
+    self.webview.hidden=NO;
+    [_activityView  stopAnimating];
+    [UIApplication  sharedApplication].networkActivityIndicatorVisible=NO;
     
 }
+
+
+
+
+
+-(void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(WKNavigation *)navigation {
+    NSLog(@"重定向");
+}
+
 
 
 
 #pragma mark  - 自定义pop和push效果
--(void)popAndPush {
+-(void)pop {
     
-    CATransition *transition = [CATransition animation];
+    _transition = [CATransition animation];
     
-    transition.duration = 0.3f;
+    _transition.duration = 0.3;
     
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    _transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     
-    transition.type = kCATransitionPush;//type设置主要的页面切换显示方式
-    if (_flag==YES) {
-        transition.subtype = kCATransitionFromLeft;//subtype设置了页面的旋转-左右上下
+    _transition.type = kCATransitionPush;//type设置主要的页面切换显示方式
+    _transition.subtype=kCATransitionFromLeft;
         
-    }else {
-        transition.subtype=kCATransitionFromRight;
-        
-    }
     
-    transition.delegate = self;
+    _transition.delegate = self;
     
-    [self.webview.layer addAnimation:transition forKey:nil];
+      [self.navigationView.layer addAnimation:_transition forKey:nil];
+    
+    [self.webview.layer addAnimation:_transition forKey:nil];
     
     [self.view addSubview:self.webview];
-    _flag=NO;
- 
+
+  
     
+}
+
+-(void)push {
+    
+    _transition = [CATransition animation];
+    
+    _transition.duration = 0.3;
+    
+    _transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    _transition.type = kCATransitionPush;//type设置主要的页面切换显示方式
+    _transition.subtype=kCATransitionFromRight;
+    
+    
+    _transition.delegate = self;
+   
+
+   
+    [self.navigationView.layer addAnimation:_transition forKey:nil];
+    
+    [self.webview.layer addAnimation:_transition forKey:nil];
+    
+    [self.view addSubview:self.webview];
+    
+
     
     
 }
 
+
+#pragma mark - 网络小菊花
+
+
+-(void)networkIndicator {
+    _activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    
+    _activityView.frame = CGRectMake(0, self.view.frame.size.height/2-20, 20, 40);
+    //放到中间
+    _activityView.center = self.view.center;
+    
+    //默认必须转动 才显示
+    //view.hidesWhenStopped = NO; 默认 停止转动隐藏
+    //改变 转动的颜色
+    _activityView.color = [UIColor blackColor];
+    
+    [ _activityView startAnimating];
+    [self.view addSubview:_activityView];
+  
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+}
 
 
 

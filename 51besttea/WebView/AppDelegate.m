@@ -19,15 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    WKWebViewController *wkwebview=[[WKWebViewController alloc] init];
-    UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:wkwebview];
-    
-    
-  
-    self.window.rootViewController=nav;
-    
-    [self.window  makeKeyAndVisible];
-       
+//    WKWebViewController *wkwebview=[[WKWebViewController alloc] init];
+//    self.window.rootViewController=wkwebview;
+//    [self.window  makeKeyAndVisible];
     return YES;
 }
 
