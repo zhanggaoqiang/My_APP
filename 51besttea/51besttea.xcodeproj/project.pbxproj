@@ -9,9 +9,8 @@
 /* Begin PBXBuildFile section */
 		9968B5D81CEC15270050CCB3 /* 返回High.png in Resources */ = {isa = PBXBuildFile; fileRef = 9968B5D71CEC15270050CCB3 /* 返回High.png */; };
 		9968B5DA1CEC152C0050CCB3 /* 返回.png in Resources */ = {isa = PBXBuildFile; fileRef = 9968B5D91CEC152C0050CCB3 /* 返回.png */; };
-		99DAA9351CED4C0A00BA641F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DAA9341CED4C0A00BA641F /* QuartzCore.framework */; };
 		99DF083C1CD83B21006331D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DF083B1CD83B21006331D0 /* main.m */; };
-		99DF083F1CD83B21006331D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DF083E1CD83B21006331D0 /* AppDelegate.m */; };
+		99DF083F1CD83B21006331D0 /* WKWebDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DF083E1CD83B21006331D0 /* WKWebDelegate.m */; };
 		99DF08421CD83B21006331D0 /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DF08411CD83B21006331D0 /* WKWebViewController.m */; };
 		99DF08451CD83B21006331D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99DF08431CD83B21006331D0 /* Main.storyboard */; };
 		99DF08471CD83B21006331D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99DF08461CD83B21006331D0 /* Assets.xcassets */; };
@@ -21,11 +20,10 @@
 /* Begin PBXFileReference section */
 		9968B5D71CEC15270050CCB3 /* 返回High.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回High.png"; sourceTree = "<group>"; };
 		9968B5D91CEC152C0050CCB3 /* 返回.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回.png"; sourceTree = "<group>"; };
-		99DAA9341CED4C0A00BA641F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		99DF08371CD83B21006331D0 /* 51besttea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 51besttea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99DF083B1CD83B21006331D0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		99DF083D1CD83B21006331D0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		99DF083E1CD83B21006331D0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		99DF083D1CD83B21006331D0 /* WKWebDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebDelegate.h; sourceTree = "<group>"; };
+		99DF083E1CD83B21006331D0 /* WKWebDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebDelegate.m; sourceTree = "<group>"; };
 		99DF08401CD83B21006331D0 /* WKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
 		99DF08411CD83B21006331D0 /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
 		99DF08441CD83B21006331D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,7 +37,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99DAA9351CED4C0A00BA641F /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,7 +46,6 @@
 		99DF082E1CD83B21006331D0 = {
 			isa = PBXGroup;
 			children = (
-				99DAA9341CED4C0A00BA641F /* QuartzCore.framework */,
 				99DF08391CD83B21006331D0 /* 51besttea */,
 				99DF08381CD83B21006331D0 /* Products */,
 			);
@@ -68,8 +64,8 @@
 			children = (
 				9968B5D91CEC152C0050CCB3 /* 返回.png */,
 				9968B5D71CEC15270050CCB3 /* 返回High.png */,
-				99DF083D1CD83B21006331D0 /* AppDelegate.h */,
-				99DF083E1CD83B21006331D0 /* AppDelegate.m */,
+				99DF083D1CD83B21006331D0 /* WKWebDelegate.h */,
+				99DF083E1CD83B21006331D0 /* WKWebDelegate.m */,
 				99DF08401CD83B21006331D0 /* WKWebViewController.h */,
 				99DF08411CD83B21006331D0 /* WKWebViewController.m */,
 				99DF08431CD83B21006331D0 /* Main.storyboard */,
@@ -164,7 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99DF08421CD83B21006331D0 /* WKWebViewController.m in Sources */,
-				99DF083F1CD83B21006331D0 /* AppDelegate.m in Sources */,
+				99DF083F1CD83B21006331D0 /* WKWebDelegate.m in Sources */,
 				99DF083C1CD83B21006331D0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

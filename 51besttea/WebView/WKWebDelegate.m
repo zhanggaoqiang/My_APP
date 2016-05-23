@@ -6,22 +6,19 @@
 //  Copyright © 2016年 zgq. All rights reserved.
 //
 
-#import "AppDelegate.h"
-#import "WKWebViewController.h"
+#import "WKWebDelegate.h"
 
-@interface AppDelegate ()
+
+@interface WKWebDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation WKWebDelegate
 
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-//    WKWebViewController *wkwebview=[[WKWebViewController alloc] init];
-//    self.window.rootViewController=wkwebview;
-//    [self.window  makeKeyAndVisible];
+ 
     return YES;
 }
 
