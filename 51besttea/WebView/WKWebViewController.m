@@ -7,8 +7,7 @@
 
 #import "WKWebViewController.h"
 #import <WebKit/WebKit.h>
-
-
+#import <SafariServices/SafariServices.h>
 @interface WKWebViewController ()<WKNavigationDelegate,WKUIDelegate>
 @property(nonatomic,strong)WKWebView *webview;// 加载网页控件
 @property(nonatomic,strong)UIView *navigationView;//导航视图
@@ -28,10 +27,7 @@
     [self.view addSubview:self.navigationView];
     [self.navigationView  addSubview:self.titleLabel];
     [self.navigationView addSubview:self.leftButton ];
-    [ self.view addSubview:self.lineView ];
-
-    
-    
+    [self.view addSubview:self.lineView ];
     
 }
 
@@ -46,16 +42,7 @@
 #pragma mark - 配置用户代理user_Agent
 
 -(void)setUserAgent {
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero] ;
-    NSString *Agent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
-    //add my info to the new agent
-    NSString *newAgent = nil;
-    newAgent = [Agent stringByAppendingString:@" 51bestteaApp"];
-    //regist the new agent
-    NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:newAgent, @"UserAgent",nil];
-    [[NSUserDefaults standardUserDefaults] registerDefaults:dictionnary];
-    NSLog(@"userAgent是:%@",dictionnary);
-    
+       
 }
 
 #pragma mark  - 懒加载

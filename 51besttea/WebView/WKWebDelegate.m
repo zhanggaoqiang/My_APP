@@ -7,6 +7,7 @@
 //
 
 #import "WKWebDelegate.h"
+#import "WKWebViewController.h"
 
 
 @interface WKWebDelegate ()
@@ -15,9 +16,27 @@
 
 @implementation WKWebDelegate
 
++(void)initialize {
+    
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero] ;
+    NSString *Agent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
+    //add my info to the new agent
+    NSString *newAgent = nil;
+    newAgent = [Agent stringByAppendingString:@" 51bestteaApp"];
+    //regist the new agent
+    NSDictionary *dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:newAgent, @"UserAgent",nil];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:dictionnary];
+
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window=[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen]bounds]];
+    
+    WKWebViewController *wkweb=[[WKWebViewController alloc] init];
+    self.window.rootViewController=wkweb;
+    [self.window  makeKeyAndVisible];
+
  
     return YES;
 }
