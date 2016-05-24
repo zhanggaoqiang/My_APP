@@ -1,0 +1,77 @@
+//
+//  jxvdyHead.pch
+//  choutixiaoguo
+//
+//  Created by jxmm on 16/3/16.
+//  Copyright © 2016年 jinxiang. All rights reserved.
+//
+
+#ifndef jxvdyHead_pch
+#define jxvdyHead_pch
+#import "Masonry.h"
+#import "UIImageView+WebCache.h"
+#import "AFNetworking.h"
+#import "WMPlayer.h"
+
+#define kScreenSize [UIScreen mainScreen].bounds.size
+
+#define NLSystemVersionGreaterOrEqualThan(version) ([[[UIDevice currentDevice] systemVersion] floatValue] >= version)
+
+#define IOS7 NLSystemVersionGreaterOrEqualThan(7.0)
+
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define NavHeight (IOS7?64:44)
+
+#define ViewHeight (iPhone5?[[UIScreen mainScreen] currentMode].size.height/2:960/2)
+
+
+
+
+#define kScreenWidth  [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kDeviceVersion [[UIDevice currentDevice].systemVersion floatValue]
+#define WS(weakSelf) __weak __typeof(&*self)weakSelf = self;
+
+#define kNavbarHeight ((kDeviceVersion>=7.0)? 64 :44 )
+#define kIOS7DELTA   ((kDeviceVersion>=7.0)? 20 :0 )
+#define kTabBarHeight 49
+
+
+
+// 颜色rgb值
+#define ORANGE_COLOR  [UIColor colorWithRed:243.0/255 green:156.0/255 blue:18.0/255 alpha:1]
+
+#define GRAY_TITLE  [UIColor colorWithRed:142.0/255 green:142.0/255 blue:147.0/255 alpha:1]
+
+#define GRAY_LINE  [UIColor colorWithRed:200.0/255 green:199.0/255 blue:204.0/255 alpha:1]
+
+#define POP_COLOR  [UIColor colorWithRed:248/255.0 green:248/255.0 blue:248/255.0 alpha:1]
+
+#define GRAY_DETAIL  [UIColor colorWithRed:109.0/255 green:109.0/255 blue:114.0/255 alpha:1]
+
+#define GRAY_BACK  [UIColor colorWithRed:240.0/255 green:240.0/255 blue:240.0/255 alpha:1]
+
+#define BLACK_COLOR  [UIColor colorWithRed:73.0/255 green:73.0/255 blue:73.0/255 alpha:1]
+
+#define MEMORY_COLOR  [UIColor colorWithRed:178.0/255 green:178.0/255 blue:178.0/255 alpha:1]
+
+#define LOGIN_BACK_COLOR [UIColor colorWithRed:236/255.0 green:236/255.0 blue:236/255.0 alpha:1]
+
+#define PERSONAL_CENTER_COLOR   [UIColor colorWithRed:98/255.0 green:166/255.0 blue:150/255.0 alpha:1]
+
+
+#define MEMBER_INFOR @"http://api2.jxvdy.com/member_info"//用户信息
+
+
+
+//#ifndef __OPTIMIZE__
+//#define NSLog(...) NSLog(__VA_ARGS__)
+//#else
+//#define NSLog(...) {}
+//#endif
+//
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* jxvdyHead_pch */
